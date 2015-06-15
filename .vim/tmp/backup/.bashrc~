@@ -1,0 +1,12 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific aliases and functions
+alias ls="ls --color"
+alias ll="ls -l"
+GIT_SSL_NO_VERIFY=true
+export PATH=/home/yanli.zjy/dev/scons/bin:/home/yanli.zjy/dev/python/bin:/home/yanli.zjy/dev/phantomjs/bin:/home/yanli.zjy/dev/php/bin:/home/yanli.zjy/dev/ant/bin:/home/yanli.zjy/dev/php/bin:/home/yanli.zjy/dev/node/bin/:/home/yanli.zjy/dev/git/bin:/home/yanli.zjy/dev/vim/bin/:$PATH:/home/yanli.zjy/dev/re2c/bin/:/home/yanli.zjy/dev/ruby/bin

@@ -28,6 +28,11 @@ if exists(':Tagbar') == 0
     runtime plugin/tagbar.vim
 endif
 
+if exists(':Tagbar') == 0
+    echomsg 'Tagbar: Could not load plugin code, check your runtimepath!'
+    finish
+endif
+
 " Basic init {{{2
 
 redir => s:ftype_out
@@ -237,6 +242,7 @@ function! s:InitTypes() abort
         \ 'union'     : 'u'
     \ }
     let s:known_types.cpp = type_cpp
+    let s:known_types.cuda = type_cpp
     " C# {{{3
     let type_cs = s:TypeInfo.New()
     let type_cs.ctagstype = 'c#'
@@ -3659,7 +3665,7 @@ function! s:ExecuteCtags(ctags_cmd) abort
         call s:debug(v:statusmsg)
         redraw!
     else
-        let ctags_output = system(a:ctags_cmd)
+        silent let ctags_output = system(a:ctags_cmd)
     endif
 
     if &shell =~ 'cmd\.exe'

@@ -1,6 +1,6 @@
 " BlackEagles vimrc for Linux && Windows
 "
-" (c) 2010 - 2014
+" (c) 2010 - 2015
 
 " nocompatible has to be the first of all ( use the real vimpower )
 set nocompatible
@@ -15,8 +15,8 @@ set nocompatible
 let mapleader = ','
 
 " WHO ARE YOU ?
-let g:AuthorName="yanli.zjy"
-let g:AuthorEmail="yanli.zjy@taobao.com"
+let g:AuthorName="jiayin"
+let g:AuthorEmail="zhangjiayin99@gmail.com"
 
 " DEFAULT WORKSPACE AREA
 let g:Workspace="~/devel/"
@@ -83,7 +83,7 @@ set wildmode=longest,full " command completion longest common part, then all.
 set fileformats=unix,dos
 set encoding=utf-8
 "set fileencoding=utf-8
-set fileencodings=utf-8,ucs-bom,cp1250,iso-8859-1
+set fileencodings=utf-8,gbk,ucs-bom,cp1250,iso-8859-1
 
 " filetype
 filetype on
@@ -104,6 +104,7 @@ if has("gui_gtk2") || has("gui_qt")
 endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 " diff settings
 set diffopt=filler,iwhite,vertical
@@ -140,6 +141,7 @@ endif
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_max_files = 100000
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\.git$\|\.hg$\|\.svn$',
 	\ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
@@ -188,13 +190,3 @@ au BufReadPost *.diz set fileencodings=utf-8,ucs-bom,cp1250
 if version >= 702
 	autocmd BufWinLeave * call clearmatches()
 endif
-
-
-autocmd FileType php inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-autocmd FileType php nnoremap <C-P> :call PhpDocSingle()<CR> 
-autocmd FileType php vnoremap <C-P> :call PhpDocRange()<CR> 
-
-
-autocmd VimEnter * NERDTree | wincmd p
-
-hi Visual term=reverse cterm=reverse guibg=Grey
